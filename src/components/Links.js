@@ -21,7 +21,6 @@ export default function BrowserLinks() {
                 <Link
                   className="browser-link"
                   onClick={() => setActiveLink("Home")}
-                  inverted
                   to="/"
                 >
                   Home

@@ -8,7 +8,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 
 // Import
-import { Segment } from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 
 // Import Browser Router
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -21,10 +21,12 @@ export default function TopMenu() {
     <>
       <BrowserLinks />
       <Region name=" ROUTES ">
-        <Route exact path="/" component={Home} />
-        <Route path="/home" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
+        <Container>
+          <Route exact path="/" component={Home} />
+          <Route path="/home" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+        </Container>
       </Region>
     </>
   );
