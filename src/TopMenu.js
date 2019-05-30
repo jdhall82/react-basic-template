@@ -1,33 +1,36 @@
 // Import React
-import React, { Component } from "react";
+import React from "react";
 
+// Home Page
 import Home from "./pages/Home";
-
-import About from "./pages/About";
-
-import Contact from "./pages/Contact";
 
 // Import
 import { Container } from "semantic-ui-react";
 
-// Import Browser Router
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+// Links
+import PageLinks from "./constants/PageLinks";
 
+// Import Browser Router
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+// Browser Links
 import BrowserLinks from "./components/Links";
-import Region from "./components/Region";
 
 export default function TopMenu() {
   return (
     <>
       <BrowserLinks />
-      <Region name=" ROUTES ">
-        <Container>
-          <Route exact path="/" component={Home} />
-          <Route path="/home" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} />
-        </Container>
-      </Region>
+      <Container>
+        <Route exact path="/" component={Home} />
+        {PageLinks.map(link => (
+          <Route
+            key={link.id}
+            exact
+            path={link.page}
+            component={link.component}
+          />
+        ))}
+      </Container>
     </>
   );
 }

@@ -1,10 +1,13 @@
 // Import React
 import React from "react";
 
+// Import
+import { Label } from "semantic-ui-react";
+
 export default function Home() {
   return (
     <>
-      <h1>Home</h1>
+      <Label>Home</Label>
     </>
   );
 }

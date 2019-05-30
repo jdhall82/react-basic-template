@@ -2,12 +2,12 @@
 import React from "react";
 
 // Import
-import { Menu } from "semantic-ui-react";
+import { Label } from "semantic-ui-react";
 
 export default function Contact() {
   return (
     <>
-      <h1>Contact</h1>
+      <Label>Contact</Label>
     </>
   );
 }

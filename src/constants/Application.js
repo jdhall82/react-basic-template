@@ -1,1 +1,3 @@
-export const ApplicationTitle = "My Application";
+const ApplicationTitle = "My Application";
+
+export default ApplicationTitle;

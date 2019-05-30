@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body {
+  background-color: #eee !important;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -19,4 +23,13 @@
 
 .browser-link{
   color: black !important;
+}
+
+.logo {
+  max-height: 40px;
+}
+
+
+span {
+  width: 200px;
 }

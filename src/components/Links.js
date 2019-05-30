@@ -1,11 +1,18 @@
-// Import React
+// React
 import React, { useState } from "react";
 
-// Import Browser Router
+// Browser Router
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-// Import
-import { Menu, Dropdown, Container, Icon } from "semantic-ui-react";
+// Logo
+import Logo from "../images/logo.svg";
+
+// Semantic components
+import { Menu, Dropdown, Container, Icon, Image } from "semantic-ui-react";
+
+import PageLinks from "../constants/PageLinks";
+
+import ApplicationTitle from "../constants/Application";
 
 export default function BrowserLinks() {
   const [activeLink, setActiveLink] = useState("Home");
@@ -14,40 +21,28 @@ export default function BrowserLinks() {
     <>
       <Menu>
         <Container>
-          <Dropdown text={activeLink} pointing className="link item">
-            <Dropdown.Menu>
-              <Dropdown.Item>
-                <Icon name="home" size="small" />
-                <Link
-                  className="browser-link"
-                  onClick={() => setActiveLink("Home")}
-                  to="/"
-                >
-                  Home
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Icon name="info" size="small" />
-                <Link
-                  className="browser-link"
-                  onClick={() => setActiveLink("About")}
-                  to="/about"
-                >
-                  About
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Icon name="mail" size="small" />
-                <Link
-                  className="browser-link"
-                  onClick={() => setActiveLink("Contact")}
-                  to="/contact"
-                >
-                  Contact
-                </Link>
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+          <Menu.Item>
+            <Image className="logo" src={Logo} />{" "}
+            <span>{ApplicationTitle}</span>
+          </Menu.Item>
+          <Menu.Menu position="right">
+            <Dropdown text={activeLink} pointing className="link item">
+              <Dropdown.Menu>
+                {PageLinks.map(link => (
+                  <Dropdown.Item key={link.id}>
+                    <Icon name={link.icon} size="small" />
+                    <Link
+                      className="browser-link"
+                      onClick={() => setActiveLink(link.displayName)}
+                      to={link.page}
+                    >
+                      {link.displayName}
+                    </Link>
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          </Menu.Menu>
         </Container>
       </Menu>
     </>
